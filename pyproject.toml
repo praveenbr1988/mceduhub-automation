@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mceduhub-automation"
+version = "1.0.0"
+description = "Page Object Model automation that captures MCEduHub e-books to PDF and downloads Teacher's Guide resources."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "playwright>=1.47",
+    "python-dotenv>=1.0",
+    "img2pdf>=0.5",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "Pillow>=10.0",   # only used by tests to create sample images
+]
+
+[project.scripts]
+mceduhub = "mceduhub.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-m 'not live'"
+markers = [
+    "live: runs against the real MCEduHub site (needs .env); run with: pytest -m live",
+]

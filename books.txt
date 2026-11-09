@@ -1,0 +1,18 @@
+# One book title per line, as shown in the library (run with --list-books to see them).
+# A unique part of the title also works, e.g. "Student Book 4".
+# Lines starting with # are ignored - add # in front of any book you want to skip.
+# Cambridge Primary English Student Book 1
+# Cambridge Primary English Student Book 2
+# Cambridge Primary English Student Book 3
+# Cambridge Primary English Student Book 4
+# Cambridge Primary English Student Book 5
+# Cambridge Primary English Workbook 1
+# Cambridge Primary English Workbook 2
+# Cambridge Primary English Workbook 3
+# Cambridge Primary English Workbook 4
+# Cambridge Primary English Workbook 5
+# Cambridge Primary English Teacher's Guide 1
+Cambridge Primary English Teacher's Guide 2
+Cambridge Primary English Teacher's Guide 3
+Cambridge Primary English Teacher's Guide 4
+Cambridge Primary English Teacher's Guide 5

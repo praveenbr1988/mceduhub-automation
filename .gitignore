@@ -1,0 +1,14 @@
+# Environment & secrets
+.venv/
+.env
+
+# Runtime data
+.browser-profile/
+output/
+logs/
+*.pdf
+
+# Python
+__pycache__/
+*.egg-info/
+.pytest_cache/

@@ -1,0 +1,43 @@
+# MCEduHub automation settings.
+# Credentials are NOT stored here - they come from .env (see .env.example).
+# Any setting left out uses the built-in default (see src/mceduhub/core/settings.py).
+# Command-line options (e.g. --headless, --output-dir) override these values.
+
+# Default book list, used when neither --books nor --books-file is given.
+books = [
+    # "Cambridge Primary English Student Book 4",
+    # "Cambridge Primary English Teacher's Guide 4",
+]
+
+[site]
+base_url = "https://www.mceduhub.com"
+login_path = "/Lead/Login/lms_login.aspx?REASON=denied_empty"
+
+[browser]
+headless = false             # true = hidden browser (same as --headless)
+viewport_width = 1600
+viewport_height = 900
+device_scale_factor = 2.0    # 2 = sharp captures; 1 = ~4x smaller PDFs
+user_data_dir = ".browser-profile"
+default_timeout_s = 30
+
+[ebook]                      # Student Books / Workbooks -> PDF
+wait_after_turn_s = 0.8      # settle time after a page has loaded
+page_load_timeout_s = 15     # max wait for a page turn + images
+reader_ready_timeout_s = 60  # max wait for the reader to open
+max_pages = 600              # safety cap of spreads per book
+jpeg_quality = 90
+keep_images = false          # true = keep output/<book>/page_*.jpg after the PDF is built
+
+[resources]                  # Teacher's Guides -> file downloads
+new_tab_wait_s = 6                       # how long to wait for a new tab after clicking a cover
+download_start_timeout_s = 60            # give up on a file if its download doesn't start in time
+sections = ["Teacher's Resources"]       # only links under these headings ([] = all)
+only_extensions = [".zip"]               # only these file types ([] = any)
+skip_names_containing = ["audio"]        # skip names containing these words ([] = none)
+max_files = 10000
+
+[output]
+output_dir = "output"
+log_dir = "logs"
+force = false                # true = re-capture e-books whose PDF already exists
